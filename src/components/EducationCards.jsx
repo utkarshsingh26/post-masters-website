@@ -141,10 +141,10 @@ export default function EducationCards() {
         backgroundImage="srm.png"
         backContent={
           <>
-            <Typography variant="body2">CGPA: 8.9</Typography>
-            <Typography variant="body2">Capstone: Movie Recommendation System</Typography>
-            <Typography variant="body2">Internships: DRDO, Cognizant</Typography>
-            <Typography variant="body2">IEEE Paper Published</Typography>
+            <Typography variant="body2">1. <b>First Class</b> with <b>Distinction</b></Typography>
+            <Typography variant="body2">2. Capstone: <b>Movie Recommendation System</b></Typography>
+            <Typography variant="body2">3. Internships: <b>DRDO, Cognizant</b></Typography>
+            <Typography variant="body2">4. <b>IEEE Paper Published</b></Typography>
           </>
         }
       />
