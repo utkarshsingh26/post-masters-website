@@ -84,14 +84,14 @@ export default function EducationCards() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: 8,
+        gap: 14,
         flexWrap: "wrap",
         py: 8,
       }}
     >
       {/* "knowledge" text */}
       <Typography
-        variant="h5"
+        variant="h4"
         sx={{
             fontWeight: "bold",
             background: "linear-gradient(to right, #0d47a1, #42a5f5)", // dark blue to light blue
@@ -121,7 +121,7 @@ export default function EducationCards() {
 
       {/* "is" text */}
       <Typography
-        variant="h5"
+        variant="h4"
         sx={{
             fontWeight: "bold",
             background: "linear-gradient(to right, #42a5f5, #ffb74d)", // light blue to light orange
@@ -151,7 +151,7 @@ export default function EducationCards() {
 
       {/* "power" text */}
       <Typography
-        variant="h5"
+        variant="h4"
         sx={{
             fontWeight: "bold",
             background: "linear-gradient(to right, #ffb74d, #d32f2f)", // light orange to fiery red

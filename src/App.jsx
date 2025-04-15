@@ -5,12 +5,12 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import HeroSection from "./components/HeroSection";
 import SimpleLineChart from "./components/SimpleLineChart";
 import MyTimeline from "./components/MyTimeline";
-import SkillsWordCloud from "./components/SkillsWordCloud";
+// import SkillsWordCloud from "./components/SkillsWordCloud";
 import EducationCards from "./components/EducationCards";
 import StarredProjectsTerminal from "./components/StarredProjectCard";
 import ThesisDefenseVideo from "./components/ThesisDefenseVideo";
 import ContactSection from "./components/ContactSection";
-// import SkillsNetworkGraph from "./components/SkillsNetworkGraph"; // commented as in your original code
+import SkillsNetworkGraph from "./components/SkillsNetworkGraph"; // commented as in your original code
 
 function App() {
   const [open, setOpen] = useState(true);
@@ -72,8 +72,9 @@ function App() {
         }}
       >
         <Box flex={1}>
-          <SkillsWordCloud />
-        </Box>
+          {/* <SkillsWordCloud /> */}
+          < SkillsNetworkGraph />
+          </Box>
         <Box flex={1}>
           <MyTimeline />
         </Box>
