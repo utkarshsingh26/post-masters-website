@@ -13,12 +13,19 @@ import { Typography } from '@mui/material';
 export default function MyTimeline() {
   return (
     <>
-    {/* <Typography variant="h5" color="gray.300">
-    Here's a timeline of my journey
-    </Typography> */}
+      {/* <Typography
+        variant="h4"
+        // fontWeight="bold"
+        gutterBottom
+        sx={{ textAlign: 'center', color: 'text.primary' }}
+      >
+        <i>A Quick Look at My Journey</i>
+      </Typography> */}
+
+
     <Timeline position="alternate">
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
           Dec 2024 - Present
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -26,19 +33,19 @@ export default function MyTimeline() {
         <img
             src="asu-logo.gif"
             alt="custom icon"
-            style={{ width: 60, height: 60, borderRadius: '50%' }}
+            style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
-          <TimelineConnector />
+          <TimelineConnector sx={{ backgroundColor: '#1976d2', width: 4, height: 10 }} />
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6">Graduate Research Assistant</Typography>
-          <Typography>ASU - Sonaran Viz Lab</Typography>
+        <TimelineContent sx={{mt: 2}}>
+          <Typography variant="h6"><b>Graduate Research Assistant</b></Typography>
+          <Typography sx={{ fontSize: '0.85rem' }}><i>Arizona State University</i></Typography>
         </TimelineContent>
       </TimelineItem>
 
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center'}}>
           Jan 2024 – May 2024
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -46,39 +53,39 @@ export default function MyTimeline() {
         <img
             src="asu-logo.gif"
             alt="custom icon"
-            style={{ width: 60, height: 60, borderRadius: '50%' }}
+            style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
-          <TimelineConnector />
+          <TimelineConnector sx={{ backgroundColor: '#1976d2', width: 4, height: 10 }} />
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6">Graduate Teaching Assistant</Typography>
-          <Typography>ASU — Data Visualization (CSE 578)</Typography>
+        <TimelineContent sx={{mt: 2}}>
+          <Typography variant="h6"><b>Graduate Teaching Assistant</b></Typography>
+          <Typography sx={{ fontSize: '0.85rem' }}><i>Arizona State University</i></Typography>
         </TimelineContent>
       </TimelineItem>
 
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
           May 2024 – Aug 2024
         </TimelineOppositeContent>
         <TimelineSeparator>
         <TimelineDot sx={{ p: 0, background: 'transparent', boxShadow: 'none' }}>
         <img
-            src="resilience.jpeg"
+            src="res-inc.jpg"
             alt="custom icon"
-            style={{ width: 60, height: 60, borderRadius: '50%' }}
+            style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
-          <TimelineConnector />
+          <TimelineConnector sx={{ backgroundColor: '#1976d2', width: 4, height: 10 }} />
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6">Intern</Typography>
-          <Typography>Resilience, Inc</Typography>
+        <TimelineContent sx={{mt: 2}}>
+          <Typography variant="h6"><b>Intern</b></Typography>
+          <Typography sx={{ fontSize: '0.85rem' }}><i>Resilience, Inc</i></Typography>
         </TimelineContent>
       </TimelineItem>
 
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center'}}>
           June 2021 – Feb 2023
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -86,19 +93,19 @@ export default function MyTimeline() {
         <img
             src="jio.png"
             alt="custom icon"
-            style={{ width: 60, height: 60, borderRadius: '50%' }}
+            style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
-          <TimelineConnector />
+          <TimelineConnector sx={{ backgroundColor: '#1976d2', width: 4, height: 10 }} />
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6">Software Engineer</Typography>
-          <Typography>Jio Platforms Ltd</Typography>
+        <TimelineContent sx={{mt: 2}}>
+          <Typography variant="h6"><b>Software Engineer</b></Typography>
+          <Typography sx={{ fontSize: '0.85rem' }}><i>Jio Platforms Ltd.</i></Typography>
         </TimelineContent>
       </TimelineItem>
 
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
           Jan 2021 – May 2021
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -106,19 +113,19 @@ export default function MyTimeline() {
         <img
             src="cognizant.jpg"
             alt="custom icon"
-            style={{ width: 60, height: 60, borderRadius: '50%' }}
+            style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
-          <TimelineConnector />
+          <TimelineConnector sx={{ backgroundColor: '#1976d2', width: 4, height: 10 }} />
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6">App Dev Intern</Typography>
-          <Typography>Cognizant</Typography>
+        <TimelineContent sx={{mt: 2}}>
+          <Typography variant="h6"><b>App Dev Intern</b></Typography>
+          <Typography sx={{ fontSize: '0.85rem' }}><i>Cognizant</i></Typography>
         </TimelineContent>
       </TimelineItem>
 
       <TimelineItem>
-        <TimelineOppositeContent color="text.secondary">
+        <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center'}}>
           Jun 2019 – Jul 2019
         </TimelineOppositeContent>
         <TimelineSeparator>
@@ -126,14 +133,14 @@ export default function MyTimeline() {
         <img
             src="drdo.png"
             alt="custom icon"
-            style={{ width: 60, height: 60, borderRadius: '50%' }}
+            style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
-          <TimelineConnector />
+          <TimelineConnector/>
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography variant="h6">Summer Intern</Typography>
-          <Typography>Defence Research and Development Organisation</Typography>
+        <TimelineContent sx={{mt: 2}}>
+          <Typography variant="h6"><b>Summer Intern</b></Typography>
+          <Typography sx={{ fontSize: '0.85rem' }}><i>D.R.D.O.</i></Typography>
         </TimelineContent>
       </TimelineItem>
 
