@@ -46,8 +46,9 @@ function App() {
           justifyContent: "center",
           alignItems: "center",
           px: 4,
-          py: 2,
-          gap: 4,
+          // py: 2,
+          // gap: 4,
+          // backgroundColor: 'red'
         }}
       >
         <Box flex={1}>
@@ -94,7 +95,7 @@ function App() {
         }}
       >
         <Box flex={1}>
-          <StarredProjectsTerminal />
+          <StarredProjectsTerminal sx={{height: '100%'}} />
         </Box>
         <Box flex={1}>
           <ThesisDefenseVideo />

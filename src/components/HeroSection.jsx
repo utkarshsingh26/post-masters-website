@@ -4,13 +4,13 @@ export default function HeroSection() {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        minHeight: "60vh",
         display: "flex",
         alignItems: "center",
         // background: "linear-gradient(to right, #141e30, #243b55)",
         color: "black",
         py: 0,
-        pt: -8
+        // pt: -8
       }}
     >
       <Container maxWidth="lg">

@@ -16,15 +16,23 @@ const xLabels = [
 export default function SimpleLineChart() {
   return (
     <LineChart
-      sx={{pt: -4}}
+      sx={{ml: 5}}
       width={800}
       height={500}
       series={[
         { data: uData, label: 'You hired me', color: 'green' },
         { data: pData, label: 'You did not hire me', color: 'red' }
       ]}
-      xAxis={[{ scaleType: 'point', data: xLabels, label: 'Time (Years)' }]}
-     // yAxis= {[{label: 'Revenue ($)', labelStyle: { transform: 'rotate(-90deg) translate(-20%, -40%)', textAnchor: 'middle', dominantBaseline: 'middle'} }]}
+      xAxis={[{ scaleType: 'point', data: xLabels }]}
+    //  yAxis= {[{label: 'Revenue ($)', labelStyle: { transform: 'rotate(-90deg) translate(-20%, -55%)', textAnchor: 'middle', dominantBaseline: 'middle'} }]}
+    //  legend={{
+    //   position: {
+    //     vertical: 'middle',
+    //     horizontal: 'right',
+    //   },
+    //   direction: 'column',
+    //   itemMarkWidth: 30
+    //  }}
     />
   );
 }
