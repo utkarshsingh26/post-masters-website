@@ -1,23 +1,46 @@
 import React, { useState } from "react";
-import { Box, Dialog, DialogTitle, DialogContent, DialogActions, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Typography,
+  Button,
+  Paper,
+} from "@mui/material";
 
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import HeroSection from "./components/HeroSection";
 import SimpleLineChart from "./components/SimpleLineChart";
 import MyTimeline from "./components/MyTimeline";
-// import SkillsWordCloud from "./components/SkillsWordCloud";
 import EducationCards from "./components/EducationCards";
 import StarredProjectsTerminal from "./components/StarredProjectCard";
 import ThesisDefenseVideo from "./components/ThesisDefenseVideo";
 import ContactSection from "./components/ContactSection";
-import SkillsNetworkGraph from "./components/SkillsNetworkGraph"; // commented as in your original code
+import SkillsNetworkGraph from "./components/SkillsNetworkGraph";
 
 function App() {
   const [open, setOpen] = useState(true);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
+
+  const Panel = ({ children }) => (
+    <Paper
+      elevation={3}
+      sx={{
+        width: "90%",
+        mx: "auto",
+        my: 4,
+        p: 4,
+        borderRadius: 3,
+        border: "1px solid #e0e0e0",
+        background: "#fff",
+      }}
+    >
+      {children}
+    </Paper>
+  );
 
   return (
     <>
@@ -39,75 +62,74 @@ function App() {
       <ResponsiveAppBar />
 
       {/* Hero + Chart */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: "center",
-          alignItems: "center",
-          px: 4,
-          // py: 2,
-          // gap: 4,
-          // backgroundColor: 'red'
-        }}
-      >
-        <Box flex={1}>
-          <HeroSection />
+      <Panel>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          <Box flex={1}>
+            <HeroSection />
+          </Box>
+          <Box flex={1}>
+            <SimpleLineChart />
+          </Box>
         </Box>
-        <Box flex={1}>
-          <SimpleLineChart />
-        </Box>
-      </Box>
+      </Panel>
 
       {/* Skills + Timeline */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: "center",
-          alignItems: "center",
-          px: 4,
-          py: 8,
-          gap: 4,
-        }}
-      >
-        <Box flex={1}>
-          {/* <SkillsWordCloud /> */}
-          < SkillsNetworkGraph />
+      <Panel>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          <Box flex={1}>
+            <SkillsNetworkGraph />
           </Box>
-        <Box flex={1}>
-          <MyTimeline />
+          <Box flex={1}>
+            <MyTimeline />
+          </Box>
         </Box>
-      </Box>
+      </Panel>
 
       {/* Education */}
-      <EducationCards />
+      <Panel>
+        <EducationCards />
+      </Panel>
 
-      {/* Starred Project + Thesis */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: "center",
-          alignItems: "center",
-          px: 4,
-          py: 8,
-          gap: 4,
-        }}
-      >
-        <Box flex={1}>
-          <StarredProjectsTerminal sx={{height: '100%'}} />
+      {/* Starred Projects + Thesis */}
+      <Panel>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          <Box flex={1}>
+            <StarredProjectsTerminal />
+          </Box>
+          <Box flex={1}>
+            <ThesisDefenseVideo />
+          </Box>
         </Box>
-        <Box flex={1}>
-          <ThesisDefenseVideo />
-        </Box>
-      </Box>
+      </Panel>
 
-      {/* Contact */}
+      {/* Contact Section Already Uses Panel Styling */}
+      <Panel>
       <ContactSection />
-
-      {/* Optional: Network Graph */}
-      {/* <SkillsNetworkGraph /> */}
+      </Panel>
     </>
   );
 }

@@ -78,6 +78,7 @@ const FlipCard = ({ frontTitle, frontSubtitle, backContent, backgroundImage }) =
 };
 
 export default function EducationCards() {
+  
   return (
     <Box
       sx={{
@@ -148,6 +149,8 @@ export default function EducationCards() {
           </>
         }
       />
+
+
 
       {/* "power" text */}
       <Typography
