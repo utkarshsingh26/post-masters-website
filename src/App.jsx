@@ -20,6 +20,7 @@ import ThesisDefenseVideo from "./components/ThesisDefenseVideo";
 import ContactSection from "./components/ContactSection";
 import SkillsNetworkGraph from "./components/SkillsNetworkGraph";
 import CustomizedRating from "./components/CustomizedRating";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 function App() {
   const [open, setOpen] = useState(true);
@@ -109,39 +110,71 @@ function App() {
 
       {/* Starred Projects + Thesis */}
       <Panel>
-      <Box
+  <Box
+    sx={{
+      display: "flex",
+      flexDirection: { xs: "column", md: "row" },
+      justifyContent: "center",
+      alignItems: "flex-start",
+      gap: 4,
+    }}
+  >
+    {/* Left Side: Stacked items */}
+    <Box flex={1} display="flex" flexDirection="column" gap={2}>
+      <StarredProjectsTerminal />
+
+      <Paper
+        elevation={2}
         sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: "center",
-          alignItems: "flex-start",
-          gap: 4,
+          p: 2,
+          borderRadius: 2,
+          border: "1px solid #e0e0e0",
+          backgroundColor: "#fafafa",
         }}
       >
-        {/* Left Side: Starred Projects + Ratings */}
-        <Box flex={1}>
-          <StarredProjectsTerminal />
-<Box mt={2} sx={{maxWidth: 400}}>
+        <CustomizedRating />
+      </Paper>
+    </Box>
+
+    {/* Right Side: Thesis Video */}
+    <Box flex={1} display="flex" flexDirection="column" gap={2}>
+  <Box
+    sx={{
+      width: "100%",
+      maxWidth: "100%",
+      minHeight: 300, // Optional: force height
+      flexGrow: 1,
+    }}
+  >
+    <ThesisDefenseVideo />
+  </Box>
+
   <Paper
     elevation={2}
     sx={{
       p: 2,
       borderRadius: 2,
       border: "1px solid #e0e0e0",
-      backgroundColor: "#fafafa",
+      backgroundColor: "#f0f7ff",
+      textAlign: "center",
+      maxWidth: 600,
+      mx: "auto",
     }}
   >
-    <CustomizedRating />
+    <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
+      <RocketLaunchIcon color="primary" fontSize="large" />
+      <Typography variant="subtitle1" fontWeight="bold" color="primary">
+        MORE COOL STUFF COMING OUT SOON
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        Stay tuned — I’m cooking up some new things you won’t want to miss!
+      </Typography>
+    </Box>
   </Paper>
 </Box>
-        </Box>
-
-        {/* Right Side: Thesis Video */}
-        <Box flex={1}>
-          <ThesisDefenseVideo />
-        </Box>
-      </Box>
+  </Box>
     </Panel>
+
 
 
       {/* Contact Section Already Uses Panel Styling */}
