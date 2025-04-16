@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { LineChart } from '@mui/x-charts/LineChart';
+import { Typography, Box } from '@mui/material';
 
 const uData = [2000, 2800, 3000, 3400, 4000, 4500, 5000];
 const pData = [2000, 1398, 1800, 2000, 1800, 2200, 2105];
@@ -15,24 +16,24 @@ const xLabels = [
 
 export default function SimpleLineChart() {
   return (
-    <LineChart
-      sx={{ml: 5}}
-      width={800}
-      height={500}
-      series={[
-        { data: uData, label: 'You hired me', color: 'green' },
-        { data: pData, label: 'You did not hire me', color: 'red' }
-      ]}
-      xAxis={[{ scaleType: 'point', data: xLabels }]}
-    //  yAxis= {[{label: 'Revenue ($)', labelStyle: { transform: 'rotate(-90deg) translate(-20%, -55%)', textAnchor: 'middle', dominantBaseline: 'middle'} }]}
-    //  legend={{
-    //   position: {
-    //     vertical: 'middle',
-    //     horizontal: 'right',
-    //   },
-    //   direction: 'column',
-    //   itemMarkWidth: 30
-    //  }}
-    />
+    <Box display="flex" flexDirection="column" alignItems="center">
+      <LineChart
+        width={800}
+        height={500}
+        series={[
+          { data: uData, label: 'You hired me', color: 'green' },
+          { data: pData, label: 'You did not hire me', color: 'red' },
+        ]}
+        xAxis={[{ scaleType: 'point', data: xLabels }]}
+      />
+      <Typography
+        variant="h5"
+        fontWeight="bold"
+        color="primary"
+        sx={{ mt: 2 }}
+      >
+        Your Company's Revenue in Millions($) over Time
+      </Typography>
+    </Box>
   );
 }
