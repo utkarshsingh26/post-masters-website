@@ -31,7 +31,7 @@ export default function MyTimeline() {
         <TimelineSeparator>
         <TimelineDot sx={{ p: 0, background: 'transparent', boxShadow: 'none' }}>
         <img
-            src="asu-logo.gif"
+            src="asu.jpg"
             alt="custom icon"
             style={{ width: 70, height: 70, borderRadius: '50%' }}
         />
@@ -51,7 +51,7 @@ export default function MyTimeline() {
         <TimelineSeparator>
         <TimelineDot sx={{ p: 0, background: 'transparent', boxShadow: 'none' }}>
         <img
-            src="asu-logo.gif"
+            src="asu.jpg"
             alt="custom icon"
             style={{ width: 70, height: 70, borderRadius: '50%' }}
         />

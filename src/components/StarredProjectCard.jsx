@@ -90,7 +90,7 @@ export default function StarredProjectCard() {
         <Button
           variant="contained"
           color="primary"
-          href="https://your-demo-link.com"
+          href="https://www.youtube.com/watch?v=GdtbjqOSDXk"
           target="_blank"
         >
           Live Demo
@@ -98,7 +98,7 @@ export default function StarredProjectCard() {
         <Button
           variant="outlined"
           color="primary"
-          href="https://github.com/your-repo"
+          href="https://github.com/utkarshsingh26/patient-portraits-thesis"
           target="_blank"
         >
           View Code
