@@ -43,7 +43,7 @@ function App() {
   );
 
   return (
-    <Box sx={{ backgroundColor: '#f5faff' }}>
+    <Box sx={{ backgroundColor: '#eee' }}>
       {/* Under Renovation Popup */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>🚧 Under Renovation</DialogTitle>
