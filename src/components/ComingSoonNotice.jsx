@@ -7,13 +7,13 @@ export default function ComingSoonNotice() {
     <Paper
       elevation={3}
       sx={{
-        width: "90%",
+        width: "60%",
         mx: "auto",
         my: 4,
         p: 4,
         borderRadius: 3,
         border: "1px solid #e0e0e0",
-        background: "#fff",
+        background: "#f4fafd",
         textAlign: "center",
       }}
     >
