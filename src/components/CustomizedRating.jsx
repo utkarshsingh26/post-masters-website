@@ -26,22 +26,22 @@ function RatingsBlock() {
 
       {/* Ratings */}
       <Stack alignItems="flex-start">
-        <Rating name="advisor-rating" defaultValue={4.5} max={5} precision={0.5} />
+        <Rating name="advisor-rating" defaultValue={4.5} max={5} precision={0.5} readOnly/>
         <Typography variant="caption" sx={{ ml: 10 }}><b><i>– Thesis Advisor</i></b></Typography>
       </Stack>
 
       <Stack alignItems="flex-start">
-        <Rating name="mayo-rating" defaultValue={4.5} max={5} precision={0.5} />
+        <Rating name="mayo-rating" defaultValue={4.5} max={5} precision={0.5} readOnly/>
         <Typography variant="caption" sx={{ ml: 10 }}><b><i>– Mayo Clinic Oncologists</i></b></Typography>
       </Stack>
 
       <Stack alignItems="flex-start">
-        <Rating name="advisor-rating" defaultValue={5} max={5} precision={0.5} />
+        <Rating name="advisor-rating" defaultValue={5} max={5} precision={0.5} readOnly/>
         <Typography variant="caption" sx={{ ml: 10 }}><b><i>– Pythagoras - "Whack!"</i></b></Typography>
       </Stack>
 
       <Stack alignItems="flex-start">
-        <Rating name="advisor-rating" defaultValue={5} max={5} precision={0.5} />
+        <Rating name="advisor-rating" defaultValue={5} max={5} precision={0.5} readOnly/>
         <Typography variant="caption" sx={{ ml: 10 }}><b><i>– Euclid - "Nothing like this is out there!"</i></b></Typography>
       </Stack>
 
@@ -54,6 +54,7 @@ function RatingsBlock() {
           getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
           icon={<FavoriteIcon fontSize="inherit" />}
           emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
+          readOnly
         />
         <Typography variant="caption" sx={{ ml: 10 }}><b><i>– Ex-Girlfriend</i></b></Typography>
       </Stack>
