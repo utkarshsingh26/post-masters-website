@@ -16,6 +16,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import SchoolIcon from '@mui/icons-material/School';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const pages = [
   { label: 'About', href: '#about' },
@@ -45,6 +46,11 @@ const settings = [
     label: 'Google Scholar',
     url: 'https://scholar.google.com/citations?user=y40YvsgAAAAJ&hl=en',
     icon: <SchoolIcon sx={{ color: '#1976d2' }} />,
+  },
+  {
+    label: 'YouTube',
+    url: 'https://www.youtube.com/@soccer69ism',
+    icon: <YouTubeIcon sx={{ color: '#FF0000' }} />,
   },
 ];
 
