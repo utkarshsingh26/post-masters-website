@@ -21,6 +21,56 @@ import ContactSection from "./components/ContactSection";
 import SkillsNetworkGraph from "./components/SkillsNetworkGraph";
 import CustomizedRating from "./components/CustomizedRating";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import SchoolIcon from '@mui/icons-material/School';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import BookIcon from '@mui/icons-material/Book';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+
+export function ScrollRevealTitle({ title, icon }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <Box ref={ref} textAlign="center" sx={{ mb: 4 }}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <Box display="flex" justifyContent="center" alignItems="center" gap={1}>
+          {icon}
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            sx={{
+              background: 'linear-gradient(to right, #1976d2, #42a5f5)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            height: 3,
+            width: 200,
+            background: 'linear-gradient(to right, #1976d2, #42a5f5)',
+            mx: 'auto',
+            mt: 1,
+            borderRadius: 2,
+          }}
+        />
+      </motion.div>
+    </Box>
+  );
+}
+
+
 
 function App() {
   const [open, setOpen] = useState(true);
@@ -66,6 +116,7 @@ function App() {
 
       {/* Hero + Chart */}
       <Panel>
+      <ScrollRevealTitle title="Who I Am & What I Bring to the Table" icon={<SentimentVerySatisfiedIcon sx={{ color: 'primary.main', fontSize: 30 }} />} />
         <Box
           sx={{
             display: "flex",
@@ -86,31 +137,38 @@ function App() {
 
       {/* Skills + Timeline */}
       <Panel>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          <Box flex={1}>
-            <SkillsNetworkGraph />
-          </Box>
-          <Box flex={1}>
-            <MyTimeline />
-          </Box>
-        </Box>
-      </Panel>
+  {/* Scroll-triggered Heading */}
+  <ScrollRevealTitle title="What I Know & Where I've Been" icon={<TimelineIcon sx={{ color: 'primary.main', fontSize: 30 }} />} />
+
+  {/* Main content */}
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: 4,
+    }}
+  >
+    <Box flex={1}>
+      <SkillsNetworkGraph />
+    </Box>
+    <Box flex={1}>
+      <MyTimeline />
+    </Box>
+  </Box>
+    </Panel>
+
 
       {/* Education */}
       <Panel>
+      <ScrollRevealTitle title="My Education" icon={<SchoolIcon sx={{ color: 'primary.main', fontSize: 30 }} />} />
         <EducationCards />
       </Panel>
 
       {/* Starred Projects + Thesis */}
       <Panel>
+      <ScrollRevealTitle title="The Fabled Research Projects" icon={<BookIcon sx={{ color: 'primary.main', fontSize: 30 }} />} />
   <Box
     sx={{
       display: "flex",
@@ -180,6 +238,7 @@ function App() {
 
       {/* Contact Section Already Uses Panel Styling */}
       <Panel>
+      <ScrollRevealTitle title="Let’s Connect (or Singh along 🎤?)" icon={<HandshakeIcon sx={{ color: 'primary.main', fontSize: 30 }} />} />
       <ContactSection />
       </Panel>
     </Box>

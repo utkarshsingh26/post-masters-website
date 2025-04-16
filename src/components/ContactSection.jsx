@@ -23,14 +23,14 @@ export default function ContactSection() {
         // my: 6,
         // p: 4,
         // borderRadius: 3,
-        background: "#ffffff",
+        // background: "#ffffff",
         // border: "1px solid #e0e0e0",
         textAlign: "center",
       }}
     >
-      <Typography variant="h5" fontWeight="bold" color="primary" gutterBottom>
+      {/* <Typography variant="h5" fontWeight="bold" color="primary" gutterBottom>
         📬 Let’s Connect (or Singh along 🎤?)
-      </Typography>
+      </Typography> */}
 
       <Typography variant="body2" color="text.secondary" mb={3}>
         Reach out to collaborate, chat tech, or just say hi!
