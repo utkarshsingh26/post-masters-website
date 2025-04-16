@@ -19,6 +19,7 @@ import StarredProjectsTerminal from "./components/StarredProjectCard";
 import ThesisDefenseVideo from "./components/ThesisDefenseVideo";
 import ContactSection from "./components/ContactSection";
 import SkillsNetworkGraph from "./components/SkillsNetworkGraph";
+import CustomizedRating from "./components/CustomizedRating";
 
 function App() {
   const [open, setOpen] = useState(true);
@@ -108,23 +109,40 @@ function App() {
 
       {/* Starred Projects + Thesis */}
       <Panel>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          <Box flex={1}>
-            <StarredProjectsTerminal />
-          </Box>
-          <Box flex={1}>
-            <ThesisDefenseVideo />
-          </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          justifyContent: "center",
+          alignItems: "flex-start",
+          gap: 4,
+        }}
+      >
+        {/* Left Side: Starred Projects + Ratings */}
+        <Box flex={1}>
+          <StarredProjectsTerminal />
+<Box mt={2} sx={{maxWidth: 400}}>
+  <Paper
+    elevation={2}
+    sx={{
+      p: 2,
+      borderRadius: 2,
+      border: "1px solid #e0e0e0",
+      backgroundColor: "#fafafa",
+    }}
+  >
+    <CustomizedRating />
+  </Paper>
+</Box>
         </Box>
-      </Panel>
+
+        {/* Right Side: Thesis Video */}
+        <Box flex={1}>
+          <ThesisDefenseVideo />
+        </Box>
+      </Box>
+    </Panel>
+
 
       {/* Contact Section Already Uses Panel Styling */}
       <Panel>
