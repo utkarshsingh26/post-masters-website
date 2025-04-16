@@ -37,7 +37,8 @@ function App() {
         p: 4,
         borderRadius: 3,
         border: "1px solid #e0e0e0",
-        background: "#fff",
+        // background: "rgba(255, 255, 255, 0.7)",
+        background: "#f9f9fb"
       }}
     >
       {children}
@@ -45,7 +46,7 @@ function App() {
   );
 
   return (
-    <>
+    <Box sx={{ backgroundColor: '#eeee', minHeight: '100vh', overflowX: 'hidden'}}>
       {/* Under Renovation Popup */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>🚧 Under Renovation</DialogTitle>
@@ -181,7 +182,7 @@ function App() {
       <Panel>
       <ContactSection />
       </Panel>
-    </>
+    </Box>
   );
 }
 

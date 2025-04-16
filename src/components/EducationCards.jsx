@@ -27,6 +27,7 @@ const FlipCard = ({ frontTitle, frontSubtitle, backContent, backgroundImage }) =
       >
         {/* Front */}
         <Card
+         elevation={6}
           sx={{
             position: "absolute",
             width: "100%",
@@ -56,6 +57,7 @@ const FlipCard = ({ frontTitle, frontSubtitle, backContent, backgroundImage }) =
 
         {/* Back */}
         <Card
+         elevation={6}
           sx={{
             position: "absolute",
             width: "100%",
@@ -108,8 +110,8 @@ export default function EducationCards() {
       {/* Grad Card */}
       <FlipCard
         frontTitle="Arizona State University"
-        frontSubtitle="M.S. Computer Science (2023–2025)"
-        backgroundImage="asu.jpg"
+        frontSubtitle="M.S. in CS (2023–2025)"
+        backgroundImage="fork.png"
         backContent={
           <>
             <Typography variant="body2">1. <b>Graduate Teaching Assistant</b> for Data Viz (CSE 578)</Typography>
