@@ -12,9 +12,40 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import SchoolIcon from '@mui/icons-material/School';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const pages = ['About', 'Education', 'Skills', 'Experience', 'Projects'];
-const settings = ['Instagram', 'LinkedIn', 'GitHub', 'Google Scholar'];
+const settings = [
+  {
+    label: 'Instagram',
+    url: 'https://instagram.com/definitelynotutkarshsingh',
+    icon: <InstagramIcon sx={{ color: '#E1306C' }} />
+  },
+  {
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/singhutkarsh98/',
+    icon: <LinkedInIcon sx={{ color: '#0077B5' }} />
+  },
+  {
+    label: 'GitHub',
+    url: 'https://github.com/utkarshsingh26',
+    icon: <GitHubIcon sx={{ color: '#000000' }} />
+  },
+  {
+    label: 'Google Scholar',
+    url: 'https://scholar.google.com/citations?user=y40YvsgAAAAJ&hl=en',
+    icon: <SchoolIcon sx={{ color: '#1976d2' }} />
+  },
+  {
+    label: 'YouTube',
+    url: 'https://www.youtube.com/@soccer69ism',
+    icon: <YouTubeIcon sx={{ color: '#FF0000' }} />
+  }
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -125,7 +156,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="My Social Media">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 2, borderRadius: 3, borderColor: 'white' }}>
-                <Avatar alt="Utkarsh Singh" src="Utkarsh_SIngh-Pro.jpeg" />
+              <Avatar alt="Utkarsh Singh" src="Utkarsh_SIngh-Pro.jpeg" sx={{ border: '2px solid white', width: 40, height: 40, }} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -144,11 +175,27 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
+            {settings.map((setting) => (
+              <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
+                <a
+                  href={setting.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ 
+                    textDecoration: 'none', 
+                    color: 'inherit', 
+                    width: '100%', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: 8 
+                  }}
+                >
+                  {setting.icon}
+                  <Typography>{setting.label}</Typography>
+                </a>
+              </MenuItem>
+            ))}
+
             </Menu>
           </Box>
         </Toolbar>
