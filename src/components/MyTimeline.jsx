@@ -113,7 +113,12 @@ export default function MyTimeline() {
         <img
             src="cognizant.jpg"
             alt="custom icon"
-            style={{ width: 70, height: 70, borderRadius: '50%' }}
+            style={{
+              width: 70,
+              height: 70,
+              borderRadius: '50%',
+              objectFit: 'fill'  // stretches image to fill container completely
+            }}
         />
         </TimelineDot>
           <TimelineConnector sx={{ backgroundColor: '#1976d2', width: 4, height: 10 }} />
@@ -131,9 +136,9 @@ export default function MyTimeline() {
         <TimelineSeparator>
         <TimelineDot sx={{ p: 0, background: 'transparent', boxShadow: 'none' }}>
         <img
-            src="drdo.png"
+            src="drdo_720.png"
             alt="custom icon"
-            style={{ width: 70, height: 70, borderRadius: '50%' }}
+            style={{ width: 100, height: 70, borderRadius: '50%' }}
         />
         </TimelineDot>
           <TimelineConnector/>
