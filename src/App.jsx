@@ -20,9 +20,9 @@ import HandshakeIcon from '@mui/icons-material/Handshake';
 import BookIcon from '@mui/icons-material/Book';
 
 function App() {
-  const [open, setOpen] = useState(true);
+  // const [open, setOpen] = useState(true);
 
-  const handleClose = () => setOpen(false);
+  // const handleClose = () => setOpen(false);
 
   const Panel = ({ children, ...props }) => (
     <Paper
@@ -45,7 +45,7 @@ function App() {
   return (
     <Box sx={{ backgroundColor: '#eee' }}>
       {/* Under Renovation Popup */}
-      <Dialog open={open} onClose={handleClose}>
+      {/* <Dialog open={open} onClose={handleClose}>
         <DialogTitle>🚧 Under Renovation</DialogTitle>
         <DialogContent>
           <Typography variant="body2">
@@ -57,7 +57,7 @@ function App() {
             Got it!
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
 
       <ResponsiveAppBar />
 
