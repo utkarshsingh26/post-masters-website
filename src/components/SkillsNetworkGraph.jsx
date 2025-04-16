@@ -1,25 +1,25 @@
-import { Box, Avatar, Typography } from "@mui/material";
+import { Box, Avatar, Tooltip } from "@mui/material";
 import { useRef, useLayoutEffect, useState } from "react";
 
 // Define each skill with its image and position (% based)
 const skills = [
-  { name: "React", src: "react.png", top: "10%", left: "20%" }, //done
-  { name: "Node", src: "node.png", top: "20%", left: "70%" }, //done
-  { name: "Firebase", src: "firebase.png", top: "70%", left: "15%" },
-  { name: "TypeScript", src: "typescript.png", top: "75%", left: "60%" },
-  { name: "JavaScript", src: "nextjs.png", top: "40%", left: "10%" },
-  { name: "Python", src: "python.jpg", top: "15%", left: "50%" }, // done
-  { name: "PostgreSQL", src: "postgresql.png", top: "60%", left: "85%" }, // done
+  { name: "React", src: "react.png", top: "10%", left: "20%" }, 
+  { name: "Node.js", src: "node.jpg", top: "20%", left: "70%" }, 
+  { name: "Firebase", src: "firebase.png", top: "70%", left: "15%" }, 
+  { name: "TypeScript", src: "typescript.svg", top: "75%", left: "60%" },  
+  { name: "JavaScript", src: "javascript.png", top: "40%", left: "10%" }, 
+  { name: "Python", src: "python.jpg", top: "15%", left: "50%" }, 
+  { name: "PostgreSQL", src: "postgresql.png", top: "60%", left: "85%" }, 
   { name: "Docker", src: "docker.png", top: "50%", left: "80%" },
-  { name: "AWS", src: "aws.png", top: "35%", left: "80%" }, // done
-  { name: "Git", src: "git.png", top: "5%", left: "35%" }, // done
-  { name: "Figma", src: "figma.png", top: "85%", left: "40%" },
-  { name: "Java", src: "java.png", top: "100%", left: "40%" },
-  { name: "C", src: "java.png", top: "100%", left: "50%" },
-  { name: "C++", src: "java.png", top: "100%", left: "60%" },
-  { name: "SQL", src: "java.png", top: "83%", left: "83%" },
-  { name: "NoSQL", src: "java.png", top: "80%", left: "90%" },
-  { name: "MongoDB", src: "mongodb.png", top: "10%", left: "90%" }, // done
+  { name: "AWS", src: "aws.png", top: "35%", left: "80%" }, 
+  { name: "Git", src: "git.png", top: "5%", left: "35%" },  
+  { name: "Figma", src: "figma.png", top: "85%", left: "40%" }, 
+  { name: "Java", src: "java.png", top: "100%", left: "40%" }, 
+  { name: "C", src: "c.jpg", top: "100%", left: "50%" }, 
+  { name: "C++", src: "cpp.png", top: "100%", left: "60%" }, 
+  { name: "SQL", src: "sql.webp", top: "83%", left: "83%" }, 
+  { name: "NoSQL", src: "nosql.png", top: "80%", left: "90%" },
+  { name: "MongoDB", src: "mongodb.png", top: "10%", left: "90%" },
 ];
 
 export default function SkillsNetworkGraph() {
@@ -127,14 +127,13 @@ export default function SkillsNetworkGraph() {
             zIndex: 2,
           }}
         >
+          <Tooltip title={skill.name} arrow>
           <Avatar
             src={skill.src}
             alt={skill.name}
             sx={{ width: 60, height: 60, border: "2px solid #1976d2" }}
           />
-          <Typography variant="caption" sx={{ mt: 0.5, display: "block" }}>
-            {skill.name}
-          </Typography>
+          </Tooltip>
         </Box>
       ))}
     </Box>

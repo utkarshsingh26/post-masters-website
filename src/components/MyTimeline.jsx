@@ -46,7 +46,7 @@ export default function MyTimeline() {
 
       <TimelineItem>
         <TimelineOppositeContent color="text.secondary" sx={{ display: 'flex', alignItems: 'center'}}>
-          Jan 2024 – May 2024
+          Aug 2024 – Dec 2024
         </TimelineOppositeContent>
         <TimelineSeparator>
         <TimelineDot sx={{ p: 0, background: 'transparent', boxShadow: 'none' }}>
