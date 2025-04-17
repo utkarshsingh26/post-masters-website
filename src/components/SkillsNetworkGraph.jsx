@@ -1,4 +1,4 @@
-import { Box, Avatar, Tooltip } from "@mui/material";
+import { Box, Avatar, Tooltip, useMediaQuery, useTheme, Grid, Typography } from "@mui/material";
 import { useRef, useLayoutEffect, useState } from "react";
 
 const skills = [
@@ -25,17 +25,50 @@ export default function SkillsNetworkGraph() {
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   useLayoutEffect(() => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       setDimensions({ width: rect.width, height: rect.height });
     }
-  }, []);
+  }, [isMobile]); // update on screen size switch
 
   const centerX = dimensions.width / 2;
   const centerY = dimensions.height / 2;
   const radius = Math.min(centerX, centerY) * 0.8;
 
+  if (isMobile) {
+    // 📱 MOBILE: Grid layout instead of radial
+    return (
+      <Box sx={{ px: 2, py: 6 }}>
+        <Typography variant="h6" textAlign="center" mb={2} color="primary">
+          Skills
+        </Typography>
+        <Grid container spacing={2} justifyContent="center">
+          {skills.map((skill, index) => (
+            <Grid item xs={4} sm={3} md={2} key={index}>
+              <Tooltip title={skill.name} arrow>
+                <Avatar
+                  src={skill.src}
+                  alt={skill.name}
+                  sx={{
+                    width: 60,
+                    height: 60,
+                    border: "2px solid #1976d2",
+                    margin: "0 auto",
+                  }}
+                />
+              </Tooltip>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    );
+  }
+
+  // 🖥️ DESKTOP: Original radial layout
   return (
     <Box
       ref={containerRef}
@@ -43,7 +76,7 @@ export default function SkillsNetworkGraph() {
         py: 8,
         px: 2,
         position: "relative",
-        height: { xs: 500, md: 600 },
+        height: 600,
         width: "100%",
         maxWidth: 800,
         margin: "0 auto",
