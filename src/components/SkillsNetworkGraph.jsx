@@ -1,54 +1,40 @@
 import { Box, Avatar, Tooltip } from "@mui/material";
 import { useRef, useLayoutEffect, useState } from "react";
 
-// Define each skill with its image and position (% based)
 const skills = [
-  { name: "React", src: "react.png", top: "10%", left: "20%" }, 
-  { name: "Node.js", src: "node.jpg", top: "20%", left: "70%" }, 
-  { name: "Firebase", src: "firebase.png", top: "70%", left: "15%" }, 
-  { name: "TypeScript", src: "typescript.svg", top: "75%", left: "60%" },  
-  { name: "JavaScript", src: "javascript.png", top: "40%", left: "10%" }, 
-  { name: "Python", src: "python.jpg", top: "15%", left: "50%" }, 
-  { name: "PostgreSQL", src: "postgresql.png", top: "60%", left: "85%" }, 
-  { name: "Docker", src: "docker.png", top: "50%", left: "80%" },
-  { name: "AWS", src: "aws.png", top: "35%", left: "80%" }, 
-  { name: "Git", src: "git.png", top: "5%", left: "35%" },  
-  { name: "Figma", src: "figma.png", top: "85%", left: "40%" }, 
-  { name: "Java", src: "java.png", top: "100%", left: "40%" }, 
-  { name: "C", src: "c.jpg", top: "100%", left: "50%" }, 
-  { name: "C++", src: "cpp.png", top: "100%", left: "60%" }, 
-  { name: "SQL", src: "sql.webp", top: "83%", left: "83%" }, 
-  { name: "NoSQL", src: "nosql.png", top: "80%", left: "90%" },
-  { name: "MongoDB", src: "mongodb.png", top: "10%", left: "90%" },
+  { name: "React", src: "react.png" },
+  { name: "Node.js", src: "node.jpg" },
+  { name: "Firebase", src: "firebase.png" },
+  { name: "TypeScript", src: "typescript.svg" },
+  { name: "JavaScript", src: "javascript.png" },
+  { name: "Python", src: "python.jpg" },
+  { name: "PostgreSQL", src: "postgresql.png" },
+  { name: "Docker", src: "docker.png" },
+  { name: "AWS", src: "aws.png" },
+  { name: "Git", src: "git.png" },
+  { name: "Figma", src: "figma.png" },
+  { name: "Java", src: "java.png" },
+  { name: "C", src: "c.jpg" },
+  { name: "C++", src: "cpp.png" },
+  { name: "SQL", src: "sql.webp" },
+  { name: "NoSQL", src: "nosql.png" },
+  { name: "MongoDB", src: "mongodb.png" },
 ];
 
 export default function SkillsNetworkGraph() {
   const containerRef = useRef(null);
-  const centerRef = useRef(null);
-  const [lines, setLines] = useState([]);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useLayoutEffect(() => {
-    if (!containerRef.current || !centerRef.current) return;
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setDimensions({ width: rect.width, height: rect.height });
+    }
+  }, []);
 
-    const containerRect = containerRef.current.getBoundingClientRect();
-    const centerRect = centerRef.current.getBoundingClientRect();
-
-    const centerX = centerRect.left + centerRect.width / 2 - containerRect.left;
-    const centerY = centerRect.top + centerRect.height / 2 - containerRect.top;
-
-    const newLines = skills.map((skill, index) => {
-      const el = document.getElementById(`skill-${index}`);
-      if (!el) return null;
-
-      const rect = el.getBoundingClientRect();
-      const x = rect.left + rect.width / 2 - containerRect.left;
-      const y = rect.top + rect.height / 2 - containerRect.top;
-
-      return { x1: centerX, y1: centerY, x2: x, y2: y };
-    });
-
-    setLines(newLines.filter(Boolean));
-  }, [skills.length]);
+  const centerX = dimensions.width / 2;
+  const centerY = dimensions.height / 2;
+  const radius = Math.min(centerX, centerY) * 0.8;
 
   return (
     <Box
@@ -57,14 +43,14 @@ export default function SkillsNetworkGraph() {
         py: 8,
         px: 2,
         position: "relative",
-        height: 500,
+        height: { xs: 500, md: 600 },
+        width: "100%",
         maxWidth: 800,
         margin: "0 auto",
         borderRadius: 4,
         textAlign: "center",
       }}
     >
-
       {/* SVG Layer for lines */}
       <svg
         style={{
@@ -76,26 +62,30 @@ export default function SkillsNetworkGraph() {
           pointerEvents: "none",
         }}
       >
-        {lines.map((line, i) => (
-          <line
-            key={i}
-            x1={line.x1}
-            y1={line.y1}
-            x2={line.x2}
-            y2={line.y2}
-            stroke="#1976d2"
-            strokeWidth="2"
-          />
-        ))}
+        {skills.map((_, index) => {
+          const angle = (index / skills.length) * 2 * Math.PI;
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
+          return (
+            <line
+              key={index}
+              x1={centerX}
+              y1={centerY}
+              x2={x}
+              y2={y}
+              stroke="#1976d2"
+              strokeWidth="2"
+            />
+          );
+        })}
       </svg>
 
       {/* Central Node */}
       <Box
-        ref={centerRef}
         sx={{
           position: "absolute",
-          top: "40%",
-          left: "40%",
+          top: centerY - 50,
+          left: centerX - 50,
           width: 100,
           height: 100,
           backgroundColor: "#1976d2",
@@ -114,28 +104,34 @@ export default function SkillsNetworkGraph() {
       </Box>
 
       {/* Skill Nodes */}
-      {skills.map((skill, index) => (
-        <Box
-          key={index}
-          id={`skill-${index}`}
-          sx={{
-            position: "absolute",
-            top: skill.top,
-            left: skill.left,
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-            zIndex: 2,
-          }}
-        >
-          <Tooltip title={skill.name} arrow>
-          <Avatar
-            src={skill.src}
-            alt={skill.name}
-            sx={{ width: 60, height: 60, border: "2px solid #1976d2" }}
-          />
-          </Tooltip>
-        </Box>
-      ))}
+      {skills.map((skill, index) => {
+        const angle = (index / skills.length) * 2 * Math.PI;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        return (
+          <Box
+            key={index}
+            sx={{
+              position: "absolute",
+              top: y - 30,
+              left: x - 30,
+              zIndex: 2,
+            }}
+          >
+            <Tooltip title={skill.name} arrow>
+              <Avatar
+                src={skill.src}
+                alt={skill.name}
+                sx={{
+                  width: 60,
+                  height: 60,
+                  border: "2px solid #1976d2",
+                }}
+              />
+            </Tooltip>
+          </Box>
+        );
+      })}
     </Box>
   );
 }

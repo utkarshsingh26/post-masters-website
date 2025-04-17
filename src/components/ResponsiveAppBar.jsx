@@ -141,7 +141,7 @@ function ResponsiveAppBar() {
             textDecoration: 'none',
           }}
         >
-          LOGO
+          UTKARSH SINGH
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
