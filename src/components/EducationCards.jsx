@@ -47,7 +47,10 @@ const FlipCard = ({ frontTitle, frontSubtitle, backContent, backgroundImage }) =
               bgcolor: "rgba(0, 0, 0, 0.6)",
               borderRadius: 1,
               textAlign: "center",
-              mt: 26,
+              position: "absolute",
+              bottom: 16,
+              left: 0,
+              right: 0,
             }}
           >
             <Typography variant="h6">{frontTitle}</Typography>
