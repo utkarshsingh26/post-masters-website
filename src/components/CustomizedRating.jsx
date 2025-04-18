@@ -76,7 +76,7 @@ export default function RatingsWithSweeneyCard() {
           <CardMedia
             component="img"
             height="300"
-            image="Sydeny Sweeney.jpg"
+            image="Zoe Saldana.jpg"
             alt="Sydney Sweeney"
             sx={{ objectFit: 'cover' }}
           />
