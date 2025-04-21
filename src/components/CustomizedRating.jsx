@@ -76,13 +76,13 @@ export default function RatingsWithSweeneyCard() {
           <CardMedia
             component="img"
             height="300"
-            image="Emma Watson.webp"
-            alt="Sydney Sweeney"
+            image="happy-doctors.webp"
+            alt="Mayo Doctors"
             sx={{ objectFit: 'cover' }}
           />
           <CardContent sx={{ textAlign: 'center' }}>
             <Typography variant="subtitle1" fontWeight="bold" color="primary">
-              Rumored Ex-Girlfriend
+              Totally Real Doctor Reaction
             </Typography>
           </CardContent>
         </Card>
