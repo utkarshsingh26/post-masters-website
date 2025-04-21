@@ -39,7 +39,7 @@ export default function HeroSection() {
               color="primary"
               size="large"
               sx={{ textTransform: "none" }}
-              href="https://docs.google.com/document/d/1xl-DVsfCQW8XG35XK3Apd-1-kMOdrzDtMdcimn913so/edit?tab=t.0"
+              href="https://docs.google.com/document/d/1aPbiNW8URvX6fGKgtDjFH6BKCOB_e3VA_vs0Z7OC2U8/edit?tab=t.0"
               target="_blank"
             >
               Kick-Ass Resume 
