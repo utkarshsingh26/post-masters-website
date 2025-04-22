@@ -42,8 +42,8 @@ import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { Typography, Box, useMediaQuery, useTheme } from "@mui/material";
 
-const uData = [2000, 2800, 3000, 3400, 4000, 4500, 5000];
-const pData = [2000, 1398, 1800, 2000, 1800, 2200, 2105];
+const uData = [200, 280, 300, 340, 400, 450, 500];
+const pData = [200, 139, 180, 200, 180, 220, 210];
 const xLabels = [
   "Year 1",
   "Year 2",
